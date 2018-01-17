@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    signingConfigs {
+        TrackRDebugAndReleaseKey {
+            keyAlias 'KBeaconTools'
+            keyPassword 'abcabc'
+            storeFile file('D:/StdioProject/KBeaconConfigTools/KBeaconTools.jks')
+            storePassword 'abcabc'
+        }
+        ReleaseApp {
+            storeFile file('D:/StdioProject/KBeaconConfigTools/KBeaconTools.jks')
+            keyAlias 'KBeaconTools'
+            keyPassword 'abcabc'
+            storePassword 'abcabc'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.locker.ilocker.KBeaconTools"
+        minSdkVersion 21
+        targetSdkVersion 22
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.ReleaseApp
+        }
+        debug {
+            signingConfig signingConfigs.TrackRDebugAndReleaseKey
+        }
+    }
+    productFlavors {
+    }
+}
+dependencies {
+    compile 'com.android.support:support-v4:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+}

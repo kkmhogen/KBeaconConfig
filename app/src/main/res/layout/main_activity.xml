@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+
+    <LinearLayout
+        android:id="@+id/noLocationProviderAlertLayout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="?android:attr/colorButtonNormal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        android:weightSum="1.0">
+
+        <ImageButton
+            android:id="@+id/imageButtonRssiSort"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:background="?android:attr/colorButtonNormal"
+            android:src="@drawable/rssi_inc_disable" />
+
+
+        <EditText
+            android:id="@+id/editTextFltDevName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:ems="10"
+            android:hint="@string/BEACON_FILTER_NAME"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/buttonRssiFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/editTextFltDevName"
+            android:backgroundTint="?android:attr/textColorHint"
+            android:text="@string/RSSI_FILTER_BUTTON"
+            android:textColor="@color/white_color" />
+
+
+    </LinearLayout>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></ListView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,630 @@
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/addModelcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <!-- 标题栏 -->
+        <RelativeLayout
+            android:id="@+id/noLocationProviderAlertLayout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/white_color"
+            android:weightSum="1.0">
+
+            <ImageButton
+                android:id="@+id/imageButtonBack"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:background="@color/white_color"
+                android:src="@drawable/trig" />
+
+            <TextView
+                android:id="@+id/textViewDeviceName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/imageButtonBack"
+                android:layout_toStartOf="@+id/buttonAction"
+                android:text="@string/BEACON_NAME"
+                android:textSize="18dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"/>
+
+
+            <Button
+                android:id="@+id/buttonAction"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:background="?android:attr/colorButtonNormal"
+                android:text="@string/menu_connect"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+        <View style="@style/divide_line_full" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/connection_states"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+
+                        android:ems="10"
+                        android:text="@string/connected"
+                        android:textSize="24sp" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/divide_line"
+                    android:visibility="gone" />
+
+
+                <LinearLayout
+                    android:id="@+id/beaconConnSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/beacon_adv_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/BEACON_ADV_TYPE"
+                        android:textSize="18sp" />
+
+
+                    <RadioGroup
+                        android:id="@+id/radioAdvTypeGroup"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+                        <RadioButton
+                            android:id="@+id/radioAdvTypeIBeacon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ADV_TYPE_IBEACON"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:id="@+id/radioAdvTypeURL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ADV_TYPE_URL"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:id="@+id/radioAdvTypeUID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ADV_TYPE_UID"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:id="@+id/radioAdvTypeTLM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ADV_TYPE_TLM"
+                            android:textSize="12sp" />
+                    </RadioGroup>
+
+
+                    <!--beacon setting-->
+                    <LinearLayout
+                        android:id="@+id/iBeaconSetting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/IBeaconSettingDesc"
+                            android:textSize="18sp" />
+
+                        <View
+                            style="@style/divide_line"
+                            android:visibility="gone" />
+
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1.0">
+
+
+                            <!-- Appring text -->
+
+                            <TextView
+                                android:id="@+id/beacon_uuid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="05dp"
+                                android:text="@string/BEACON_UUID"
+                                android:textSize="@dimen/activity_horizontal_margin" />
+
+                            <EditText
+                                android:id="@+id/editIBeaconUUID"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.6"
+                                android:textSize="14sp" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1.0">
+
+                            <!-- Appring text -->
+                            <TextView
+                                android:id="@+id/beacon_major"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="05dp"
+                                android:text="@string/BEACON_MAJOR"
+                                android:textSize="@dimen/activity_horizontal_margin" />
+
+                            <EditText
+                                android:id="@+id/editIBeaconMajor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:text="@string/BEACON_MAJOR_EXPLAIN"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1.0">
+
+
+                            <!-- Appring text -->
+
+                            <TextView
+                                android:id="@+id/beacon_minor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="05dp"
+                                android:text="@string/BEACON_MINOR"
+                                android:textSize="@dimen/activity_horizontal_margin" />
+
+                            <EditText
+                                android:id="@+id/editIBeaconMinor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:text="@string/BEACON_MAJOR_EXPLAIN"
+                                android:textSize="12sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <!--url setting-->
+                    <LinearLayout
+                        android:id="@+id/EddystoneURLSetting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:visibility="invisible">
+
+                        <TextView
+                            android:id="@+id/textViewUrl"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/EddyURLSettingDesc"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1.0">
+
+
+                            <!-- Appring text -->
+                            <TextView
+                                android:id="@+id/beacon_url"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="05dp"
+                                android:text="@string/BEACON_URL_ADDRESS"
+                                android:textSize="16sp" />
+
+                            <EditText
+                                android:id="@+id/editEddyUrl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/EddystoneUIDSetting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/textViewUid"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/EddyURLSettingDesc"
+                            android:textSize="18sp" />
+
+                        <View
+                            style="@style/divide_line"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="35dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1.0">
+
+                            <!-- Appring text -->
+                            <TextView
+                                android:id="@+id/beacon_namespaceID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="05dp"
+                                android:text="@string/BEACON_EDDY_NAMESPACE_ID"
+                                android:textSize="@dimen/activity_horizontal_margin" />
+
+                            <EditText
+                                android:id="@+id/editEddyNamespaceID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="0dp"
+                                android:text="@string/BEACON_NAMESPACEID_EXP"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="35dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1.0">
+
+                            <!-- Appring text -->
+                            <TextView
+                                android:id="@+id/beacon_serialID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="05dp"
+                                android:text="@string/BEACON_EDDY_SERIAL_ID"
+                                android:textSize="@dimen/activity_horizontal_margin" />
+
+                            <EditText
+                                android:id="@+id/editEddySerialID"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/BEACON_SERIALID_EXP"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textViewDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/CommonSetting"
+                        android:textSize="18sp" />
+
+                    <View
+                        style="@style/divide_line"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+
+                        <!-- Appring text -->
+
+                        <TextView
+                            android:id="@+id/beacon_adv_period"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/BEACON_ADV_PERIOD"
+                            android:textSize="@dimen/activity_horizontal_margin" />
+
+                        <EditText
+                            android:id="@+id/editBeaconAdvPeriod"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.25"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.45"
+                            android:text="@string/BEACON_ADV_PRD_EXP"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <!--睡眠模式时间 -->
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+
+                        <TextView
+                            android:id="@+id/beacon_tx_power"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/EDIT_BEACON_TX_POWER"
+                            android:textSize="@dimen/activity_horizontal_margin" />
+
+                        <RadioGroup
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1.0">
+
+                            <RadioButton
+                                android:id="@+id/radioTxPowerNeg20dBm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/TX_NEG_20_DBM"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/radioTxPowerNeg10dBm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/TX_NEG_10_DBM"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/radioTxPower0dBm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/TX_0_DBM"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/radioTxPower5dBm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/TX_5_DBM"
+                                android:textSize="14sp" />
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+
+                        <!-- Appring text -->
+
+                        <TextView
+                            android:id="@+id/beacon_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/BEACON_NAME"
+                            android:textSize="@dimen/activity_horizontal_margin" />
+
+                        <EditText
+                            android:id="@+id/editBeaconname"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/BEACON_NAME_EXP"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+
+                        <!-- Appring text -->
+
+                        <TextView
+                            android:id="@+id/beacon_serial_ID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/BEACON_SERIAL_ID"
+                            android:textSize="@dimen/activity_horizontal_margin" />
+
+                        <EditText
+                            android:id="@+id/editBeaconSerialID"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/BEACON_SERIAL_ID_EXP"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+                        <!-- Appring text -->
+
+                        <TextView
+                            android:id="@+id/beacon_new_password"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/BEACON_NEW_PWD"
+                            android:textSize="@dimen/activity_horizontal_margin" />
+
+                        <EditText
+                            android:id="@+id/editNewPassword"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/BEACON_NEW_PWD_EXP"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+
+                        <!-- Appring text -->
+
+                        <Switch
+                            android:id="@+id/switchConnEnalbe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:checked="false"
+                            android:text="@string/beacon_cfg_conn_enalbe" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+
+                        <Button
+                            android:id="@+id/buttonSaveAsTemplate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/SAVE_AS_TEMPLATE" />
+
+                        <Button
+                            android:id="@+id/buttonLoadTemplate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/LOAD_TEMPLATE" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>

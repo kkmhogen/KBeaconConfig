@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="track_setting">设置</string>
+    <string name="app_name">KBeaconConfig</string>
+    <string name="ble_not_supported">设备不支持蓝牙4.0</string>
+    <string name="ble_function_disable">手机蓝牙功能没有打开，请先开启手机蓝牙功能.</string>
+    <string name="label_data">Data:</string>
+    <string name="label_device_address">地址:</string>
+    <string name="label_state">State:</string>
+    <string name="no_data">No data</string>
+    <string name="connected">已连接</string>
+    <string name="connecting">连接中</string>
+    <string name="disconnected">断开</string>
+    <string name="unknown">未知</string>
+    <string name="title_devices">测试</string>
+    <string name="error_bluetooth_not_supported">不支持蓝牙.</string>
+
+    <string name="unknown_device">N/A</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+    <!-- Menu items -->
+    <string name="menu_scan">扫描</string>
+    <string name="menu_remove">清除</string>
+    <string name="menu_stop">停止</string>
+    <string name="menu_shut">关机</string>
+    <string name="menu_setting">设置</string>
+
+    <!--itrack desc-->
+    <string name="test_result_succ">通过</string>
+    <string name="test_result_fail">信号弱</string>
+    <string name="track_name">iTrack</string>
+    <string name="track_mac_address">FF:FF:FF:FF:FF:FF</string>
+    <string name="track_state">状态</string>
+    <string name="title_activity_setting">设置</string>
+    <string name="title_activity_lock">锁</string>
+
+    <string name="track_setting_save">保存模板</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string name="min_qualified_rssi">最小信号强度:</string>
+    <string name="test_num_per">Test Number:</string>
+    <string name="VryCode">当前密码:</string>
+    <string name="TrackVryCode">000000</string>
+    <string name="default_lock_password">默认密码</string>
+    <string name="auto_lock_desc">自动解锁功能</string>
+    <string name="min_rssi_value">50</string>
+    <string name="conn_status">连接状态:</string>
+    <string name="lock_status">锁状态:</string>
+    <string name="lock_status_unlocked">已开锁</string>
+    <string name="lock_status_locked">已锁上</string>
+    <string name="action_start_lock">上锁</string>
+    <string name="action_start_unlock">开锁</string>
+    <string name="lock_setting">设置:</string>
+    <string name="auto_unlock_desc">自动开锁:</string>
+    <string name="change_password">修改密码:</string>
+
+    <string name="menu_connect">连接</string>
+    <string name="menu_disconnect">断开</string>
+
+    <string name="Dialog_OK">确定</string>
+    <string name="Dialog_Cancel">取消</string>
+
+    <string name="modify_password_title">修改密码</string>
+    <string name="modify_password_success">修改密码成功！</string>
+    <string name="version_desc">版本:</string>
+    <string name="battery_level">电池电量:</string>
+
+    <string name="conn_error_title">连接失败</string>
+    <string name="auth_error_title">鉴权失败,请重新输入密码</string>
+    <string name="connect_error_timeout">连接失败，请再试一次，如果还是失败，请重启手机蓝牙和App再尝试</string>
+    <string name="connect_error_auth_format">格式错误，请输入6位密码.</string>
+    <string name="test_number">测试次数:</string>
+    <string name="VIB_ALERT_SW">震动报警</string>
+    <string name="Old_password_hint">旧密码</string>
+    <string name="confirm_password">请再次输入新密码</string>
+    <string name="new_password_desc">新密码</string>
+    <string name="LOCK_ALERT_ON">开始</string>
+    <string name="LOCK_ALERT_OFF">停止</string>
+    <string name="ALERT_TITLE">呼叫:</string>
+    <string name="cmd_low_battery_desc">Low Battery, not allowed lock!</string>
+    <string name="cmd_low_battery_title">Low Battery</string>
+    <string name="menu_dfu">dfu</string>
+    <string name="menu_refresh">refresh</string>
+    <string name="DUF_LABEL_DESC">空中升级</string>
+    <string name="START_DFU_BUTTON_TITLE">启动</string>
+    <string name="BTN_TURNOFF_TITLE">关机</string>
+
+    <string name="cmd_lock_fail_title">锁失败</string>
+    <string name="cmd_lock_fail_desc">错误，锁失败!</string>
+
+    <string name="dfu_failed_title">升级失败</string>
+    <string name="dfu_failed_notsupport">固件不支持升级</string>
+    <string name="app_version">版本</string>
+    <string name="Old_password_wrong">旧密码错误</string>
+    <string name="new_password_not_equal">两次输入的密码不一致</string>
+    <string name="password_not_6_char">密码需要6位</string>
+    <string name="mdy_pwd_desc">修改密码</string>
+    <string name="mdy_lock_name_desc">修改名称</string>
+    <string name="name_not_null">名字不能为空</string>
+    <string name="connected_discovered">发现设备</string>
+    <string name="new_name_dlg_title">新名称</string>
+    <string name="name_max_then_12_ascii">名字不能超过12个字符</string>
+    <string name="VIB_CFG_DOWNLOAD_SUCCESS">修改震动使能配置成功</string>
+    <string name="ENABLE_AUTOUNLOCK_CFG_SUCC">修改自动解锁配置成功</string>
+    <string name="BEACON_RSSI_VALUE">RSSI:</string>
+    <string name="BEACON_MAJOR">Major:</string>
+    <string name="BEACON_MINOR">Minor:</string>
+    <string name="BEACON_CONN_ENABLE">可连接性:</string>
+    <string name="BEACON_TX_POWER">Tx:</string>
+    <string name="BEACON_BATTERY">Battery:</string>
+    <string name="BEACON_MAC_ADDRESS">Mac:</string>
+    <string name="BEACON_TEMP">Temp:</string>
+    <string name="BEACON_RTT">Rtt:</string>
+    <string name="BEACON_UUID">UUID:</string>
+    <string name="EDDYSTONE_URL_DESC">Url:</string>
+    <string name="EDDYSTONE_UID">UID:</string>
+    <string name="BEACON_MAJOR_EXPLAIN">(0~65535)</string>
+    <string name="BEACON_ADV_TYPE">Beacon Type</string>
+    <string name="ADV_TYPE_IBEACON">iBeacon</string>
+    <string name="ADV_TYPE_URL">EddyURL</string>
+    <string name="ADV_TYPE_UID">EddyUID</string>
+    <string name="BEACON_16_HEX">(16 Hex)</string>
+    <string name="BEACON_ADV_PERIOD">Adv Period:</string>
+    <string name="BEACON_ADV_PRD_EXP">(100~10000ms)</string>
+    <string name="EDIT_BEACON_TX_POWER">TxPower(dBm):</string>
+    <string name="TX_NEG_20_DBM">-20</string>
+    <string name="TX_NEG_10_DBM">-10</string>
+    <string name="TX_0_DBM">0</string>
+    <string name="TX_5_DBM">5</string>
+    <string name="BEACON_NEW_PWD">修改密码:</string>
+    <string name="BEACON_NEW_PWD_EXP">(6 character)</string>
+    <string name="BEACON_URL_ADDRESS">URL地址:</string>
+    <string name="BEACON_EDDY_NAMESPACE_ID">Namespace:</string>
+    <string name="BEACON_EDDY_SERIAL_ID">Serial:</string>
+    <string name="BEACON_NAMESPACEID_EXP">(10Byte)</string>
+    <string name="BEACON_SERIALID_EXP">(6Byte)</string>
+    <string name="SAVE_AS_TEMPLATE">保存为模板</string>
+    <string name="TEMPLATE_NAME">模板名称</string>
+    <string name="DISCOVER_SRV">查找服务</string>
+    <string name="devMenuUpload">上传</string>
+    <string name="IBeaconSettingDesc">iBeacon设置:</string>
+    <string name="EddyURLSettingDesc">Eddystone URL设置:</string>
+    <string name="EddyUIDSettingDesc">Eddystone UID设置</string>
+    <string name="CommonSetting">公共设置:</string>
+    <string name="ADV_TYPE_TLM">EddyTLM</string>
+    <string name="BEACON_NAME">设备名称:</string>
+    <string name="BEACON_SERIAL_ID">序号ID:</string>
+    <string name="BEACON_NAME_EXP">(1~11 character)</string>
+    <string name="BEACON_SERIAL_ID_EXP">(1~99999)</string>
+    <string name="LOAD_TEMPLATE">加载模板配置数据</string>
+    <string name="BEACON_ADV_PERIOD_FMT_ERROR">Beacon广播周期错误，应该为(100~10000ms)</string>
+    <string name="BEACON_DEV_NAME_FMT_ERROR">Beacon名称错误，不超过11个字符(5个汉字)</string>
+    <string name="BEACON_DEV_SERIAL_ID_FMT_ERROR">Beacon序号ID错误(1~9999 number)</string>
+    <string name="EDDY_NAMESPACE_FMT_ERROR">Eddystone namespace id 格式错误</string>
+    <string name="EDDY_SERIAL_FMT_ERROR">Eddystone serial id 格式错误</string>
+    <string name="EDDY_URL_FMT_ERROR">Eddystone Url格式错误.Please input like: http://www.kkmcn.com/</string>
+    <string name="IBEACON_MAJOR_FMT_ERROR">Apple iBeacon MajorID 格式错误</string>
+    <string name="IBEACON_MINOR_FMT_ERROR">Apple iBeacon Minor格式错误</string>
+    <string name="IBEACON_UUID_FMT_ERROR">Apple iBeacon UUID格式错误</string>
+    <string name="auth_write_pwd_title">请输入新的解锁码</string>
+    <string name="authentication_failed_desc">解锁失败，请检查密码输入是否正确!</string>
+    <string name="common_error_title">Error</string>
+    <string name="err_read_check_failed">读校验失败.</string>
+    <string name="upload_config_paramaters">上传参数</string>
+    <string name="upload_data_success">上传参数到设备成功!</string>
+    <string name="upload_data_title">上传成功</string>
+    <string name="upload_read_check_paramaters">正在校验写入的参数</string>
+    <string name="upload_ready_paramaters">开始</string>
+    <string name="upload_unlock_for_write">解锁失败</string>
+    <string name="upload_write_paramaters">写入配置参数</string>
+    <string name="err_no_data_chage_need_cfg">"参数没有变化，无需上传到设备 "</string>
+    <string name="BEACON_OLD_PWD">设备密码:</string>
+    <string name="BEACON_OLD_PWD_EXP">(6个字符)</string>
+    <string name="beacon_cfg_conn_enalbe">可连接</string>
+    <string name="beacon_load_para_to_template_failed">没有模板参数配置</string>
+    <string name="beacon_load_para_to_template_success">加载模板配置参数成功</string>
+    <string name="beacon_save_para_to_template_success">保存模板配置参数成功</string>
+    <string name="BEACON_FILTER_NAME">过滤名称</string>
+    <string name="common_succ_title">成功</string>
+    <string name="device_list">设备列表</string>
+    <string name="BEACON_MAJOR_LIST">Major:</string>
+    <string name="BEACON_MINOR_LIST">Minor:</string>
+    <string name="RSSI_FILTER_BUTTON">Filter Rssi</string>
+    <string name="RSSI_FILTER_SCALE">Rssi Range:</string>
+    <string name="input_rssi_error">Rssi值输入错误，范围为 (-100~+10)</string>
+    <string name="min_large_then_max_error">错误，RSSI最小值> RSSI最大值</string>
+    <string name="EDDY_URL_FMT_LEN_18">Eddystone URL length can not > 18 Byte</string>
+    <string name="write_error_dev_unlocked">设备未解锁，当前操作不允许.</string>
+    <string name="KBEACON_ADV_NO_CONNECTABLE">设备处于不可连接广播，不允许连接. 您可以按一下KBeacon的按钮或者重新安装电池使KBeacon进入可连接广播</string>
+</resources>

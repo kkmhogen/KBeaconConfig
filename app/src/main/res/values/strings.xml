@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="Dialog_Cancel">Cancel</string>
+    <string name="app_name">KBeaconConfig</string>
+    <string name="ble_not_supported">Devices does not support ble4.0 </string>
+    <string name="ble_function_disable">Bluetooth function is not enable on phone.</string>
+    <string name="label_data">Data:</string>
+    <string name="label_device_address">Address:</string>
+    <string name="label_state">State:</string>
+    <string name="no_data">No data</string>
+    <string name="connected">Connected</string>
+    <string name="connecting">Connecteing</string>
+    <string name="disconnected">Disconnect</string>
+    <string name="unknown">Unknown</string>
+    <string name="title_devices">Test</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+    <string name="title_activity_lock">locker</string>
+
+
+    <!-- Menu items -->
+    <string name="menu_scan">Scan</string>
+    <string name="menu_remove">Remove</string>
+    <string name="menu_stop">Stop</string>
+    <string name="menu_shut">TurnOff</string>
+    <string name="menu_setting">Setting</string>
+
+    <!--itrack desc-->
+    <string name="test_result_succ">Pass</string>
+    <string name="test_result_fail">WeakSignal</string>
+    <string name="track_name">iTrack</string>
+    <string name="track_mac_address">FF:FF:FF:FF:FF:FF</string>
+    <string name="track_state">Status</string>
+    <string name="title_activity_setting">Setting</string>
+
+    <string name="track_setting_save">Save</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string name="min_qualified_rssi">Min RSSI:</string>
+    <string name="test_num_per">Test Number:</string>
+    <string name="VryCode">Current Password:</string>
+    <string name="TrackVryCode">000000</string>
+    <string name="default_lock_password">Default Password:</string>
+    <string name="auto_lock_desc">Auto Unlock</string>
+    <string name="mdy_pwd_desc">Modify Password</string>
+    <string name="min_rssi_value">50</string>
+    <string name="conn_status">Disconnected</string>
+    <string name="lock_status">Lock Status:</string>
+    <string name="lock_status_unlocked">Unlocked</string>
+    <string name="lock_status_locked">Locked</string>
+    <string name="action_start_lock">Lock</string>
+    <string name="action_start_unlock">Unlock</string>
+    <string name="lock_setting">Settings:</string>
+    <string name="auto_unlock_desc">Auto lock/unlock:</string>
+    <string name="change_password">New Pwd:</string>
+
+    <string name="menu_connect">Connect</string>
+    <string name="menu_disconnect">Disconnect</string>
+
+    <string name="Dialog_OK">OK</string>
+
+    <string name="modify_password_title">Modify Password</string>
+    <string name="modify_password_success">Modify password successfully!</string>
+    <string name="version_desc">Version:</string>
+    <string name="battery_level">Battery Level:</string>
+
+    <string name="cmd_low_battery_title">Low Battery</string>
+    <string name="cmd_low_battery_desc">Low Battery, not allowed lock!</string>
+
+    <string name="cmd_lock_fail_title">Lock failed</string>
+    <string name="cmd_lock_fail_desc">Lock failed, error!</string>
+
+    <string name="dfu_failed_title">DFU Failed</string>
+    <string name="dfu_failed_notsupport">fareware not support DFU</string>
+
+    <string name="conn_error_title">Connect Failed</string>
+    <string name="auth_error_title">Authentication Failed, Please input password</string>
+    <string name="connect_error_timeout">Connect failed, please try it again. if it still failed, then reset Phone bluetooth and APP.</string>
+    <string name="connect_error_auth_format">Password format error, must be 6 number</string>
+    <string name="test_number">TestNumber</string>
+    <string name="VIB_ALERT_SW">Virbration Alert</string>
+    <string name="LOCK_ALERT_ON">ON</string>
+    <string name="LOCK_ALERT_OFF">OFF</string>
+    <string name="ALERT_TITLE">Alert</string>
+    <string name="menu_refresh">refresh</string>
+    <string name="menu_dfu">dfu</string>
+    <string name="DUF_LABEL_DESC">StartDFU</string>
+    <string name="START_DFU_BUTTON_TITLE">Start</string>
+    <string name="BTN_TURNOFF_TITLE">TurnOff</string>
+    <string name="app_version">version</string>
+    <string name="Old_password_hint">old password</string>
+    <string name="new_password_desc">new password</string>
+    <string name="confirm_password">Confirm your password</string>
+    <string name="Old_password_wrong">Old password is wrong</string>
+    <string name="new_password_not_equal">New password is not equal</string>
+    <string name="password_not_6_char">The password must be 6 characteristics.</string>
+    <string name="mdy_lock_name_desc">Modify Name</string>
+    <string name="name_not_null">Name is black</string>
+    <string name="name_max_then_12_ascii">Name must not > 12 ASCII character</string>
+    <string name="connected_discovered">Discovered</string>
+    <string name="new_name_dlg_title">New Name</string>
+    <string name="VIB_CFG_DOWNLOAD_SUCCESS">Modify virbration configruation success.</string>
+    <string name="ENABLE_AUTOUNLOCK_CFG_SUCC">Modify auto unlock configruation success.</string>
+    <string name="BEACON_RSSI_VALUE">Rssi:</string>
+    <string name="BEACON_MAJOR">Major:0x</string>
+    <string name="BEACON_MINOR">Minor:0x</string>
+    <string name="BEACON_CONN_ENABLE">Connectable:</string>
+    <string name="BEACON_TX_POWER">Tx:</string>
+    <string name="BEACON_BATTERY">Battery:</string>
+    <string name="BEACON_MAC_ADDRESS">Mac:</string>
+    <string name="BEACON_TEMP">Temp:</string>
+    <string name="BEACON_RTT">Rtt:</string>
+    <string name="BEACON_UUID">UUID:0x</string>
+    <string name="EDDYSTONE_URL_DESC">Url:</string>
+    <string name="EDDYSTONE_UID">UID:</string>
+    <string name="BEACON_ADV_TYPE">Beacon Type</string>
+    <string name="ADV_TYPE_IBEACON">iBeacon</string>
+    <string name="ADV_TYPE_URL">EddyURL</string>
+    <string name="ADV_TYPE_UID">EddyUID</string>
+    <string name="BEACON_16_HEX">(16 Hex)</string>
+    <string name="BEACON_ADV_PERIOD">Adv Period:</string>
+    <string name="BEACON_MAJOR_EXPLAIN">(0~65535)</string>
+    <string name="BEACON_ADV_PRD_EXP">(100~10000ms)</string>
+    <string name="EDIT_BEACON_TX_POWER">TxPower(dBm):</string>
+    <string name="TX_NEG_20_DBM">-20</string>
+    <string name="TX_NEG_10_DBM">-10</string>
+    <string name="TX_0_DBM">0</string>
+    <string name="TX_5_DBM">5</string>
+    <string name="BEACON_NEW_PWD">Change Password:</string>
+    <string name="BEACON_NEW_PWD_EXP">(Leave bank if no modify)</string>
+    <string name="BEACON_URL_ADDRESS">UrlAddress:</string>
+    <string name="BEACON_EDDY_NAMESPACE_ID">Namespace:0x</string>
+    <string name="BEACON_EDDY_SERIAL_ID">Serial:0x</string>
+    <string name="BEACON_NAMESPACEID_EXP">(10Byte)</string>
+    <string name="BEACON_SERIALID_EXP">(6Byte)</string>
+    <string name="SAVE_AS_TEMPLATE">Save As Template</string>
+    <string name="TEMPLATE_NAME">Template Name</string>
+    <string name="DISCOVER_SRV">DiscoverServing</string>
+    <string name="devMenuUpload">Upload</string>
+    <string name="IBeaconSettingDesc">iBeacon Setting:</string>
+    <string name="EddyURLSettingDesc">Eddystone URL Setting:</string>
+    <string name="EddyUIDSettingDesc">Eddystone UID Setting</string>
+    <string name="CommonSetting">Common Setting:</string>
+    <string name="ADV_TYPE_TLM">EddyTLM</string>
+    <string name="BEACON_NAME">Device Name:</string>
+    <string name="BEACON_SERIAL_ID">Serial ID:</string>
+    <string name="BEACON_NAME_EXP">(1~11character)</string>
+    <string name="BEACON_SERIAL_ID_EXP">(1~99999)</string>
+    <string name="LOAD_TEMPLATE">Load Template</string>
+    <string name="IBEACON_UUID_FMT_ERROR">Apple iBeacon UUID format error</string>
+    <string name="IBEACON_MAJOR_FMT_ERROR">Apple iBeacon MajorID format error</string>
+    <string name="IBEACON_MINOR_FMT_ERROR">Apple iBeacon Minor format error</string>
+    <string name="EDDY_NAMESPACE_FMT_ERROR">Eddystone namespace id format error</string>
+    <string name="EDDY_SERIAL_FMT_ERROR">Eddystone serial id format error</string>
+    <string name="EDDY_URL_FMT_ERROR">Eddystone Url format error.Please input like: http://www.kkmcn.com/</string>
+    <string name="BEACON_ADV_PERIOD_FMT_ERROR">Beacon advertisement period format error(100~10000ms)</string>
+    <string name="BEACON_DEV_NAME_FMT_ERROR">Beacon advertisement period format error(100~10000ms)</string>
+    <string name="BEACON_DEV_SERIAL_ID_FMT_ERROR">Beacon serial id format error(1~99999 number)</string>
+
+    <string name="upload_data_title">Upload successful</string>
+    <string name="upload_data_success">Upload config paramaters to device successfully!</string>
+
+    <string name="common_error_title">Error</string>
+    <string name="authentication_failed_desc">Authentication failed, please check whether the unlock password is right!</string>
+
+    <string name="auth_write_pwd_title">Please input unlock code</string>
+    <string name="err_no_data_chage_need_cfg">No need upload paramaters to device during no config data changed </string>
+
+    <string name="err_read_check_failed">Reading check failed, please try to upload again.</string>
+    <string name="upload_config_paramaters">Upload Paramaters</string>
+    <string name="upload_ready_paramaters">Starting</string>
+    <string name="upload_unlock_for_write">Unlocking device</string>
+    <string name="upload_write_paramaters">Write Config Paramaters to device</string>
+    <string name="upload_read_check_paramaters">Read paramaters from device to check</string>
+    <string name="BEACON_OLD_PWD">DevicePassword:</string>
+    <string name="BEACON_OLD_PWD_EXP">(6 character)</string>
+    <string name="beacon_save_para_to_template_success">Save config paramaters as an template success</string>
+    <string name="beacon_load_para_to_template_success">Load config paramaters from template success</string>
+    <string name="beacon_load_para_to_template_failed">No template config paramaters exist</string>
+    <string name="beacon_cfg_conn_enalbe">Connect Enable</string>
+    <string name="BEACON_FILTER_NAME">Filter name</string>
+    <string name="device_list">device list</string>
+    <string name="common_succ_title">Success</string>
+    <string name="BEACON_MAJOR_LIST">Major:</string>
+    <string name="BEACON_MINOR_LIST">Minor:</string>
+    <string name="RSSI_FILTER_BUTTON">Filter Rssi</string>
+    <string name="RSSI_FILTER_SCALE">Rssi Range:</string>
+    <string name="input_rssi_error">Rssi value invalid, value must be (-100~+10)</string>
+    <string name="min_large_then_max_error">Error: Min rssi value > max rssi value</string>
+    <string name="EDDY_URL_FMT_LEN_18">Eddystone URL length can not > 18 Byte</string>
+    <string name="write_error_dev_unlocked">Device is locked, not allowed do this action.</string>
+    <string name="KBEACON_ADV_NO_CONNECTABLE">The device is in Un-Connected advertisement and not allowed to be connect. Click the button on KBeacon or reinstall the battery to make it enter connectable advertisement.</string>
+
+</resources>
