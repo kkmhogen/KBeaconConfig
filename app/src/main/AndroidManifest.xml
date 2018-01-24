@@ -15,9 +15,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.beacon.kbeacon.KBeaconConfigTools"
-          android:versionCode="13"
-          android:versionName="1.32">
+          package="com.beacon.kbeacon"
+          android:versionCode="16"
+          android:versionName="1.35">
 
     <!--Declare this required feature if you want to make the app available to BLE-capable
     devices only.  If you want to make your app available to devices that don't support BLE,
@@ -25,8 +25,8 @@ limitations under the License.
     PackageManager.hasSystemFeature(FEATURE_BLUETOOTH_LE)
     -->
     <uses-feature
-        android:name="com.beacon.kbeacon.KBeaconConfigTools"
-        android:required="true"/>
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -37,7 +37,7 @@ limitations under the License.
         android:theme="@style/IosTheme">
 
         <activity
-            android:name="com.beacon.kbeacon.KBeaconConfigTools.DeviceScanActivity"
+            android:name="com.beacon.kbeacon.DeviceScanActivity"
             android:label="@string/app_name"
             android:theme="@style/IosNoActionBarTheme"
             android:screenOrientation="portrait">
@@ -48,7 +48,7 @@ limitations under the License.
         </activity>
 
         <activity
-            android:name="com.beacon.kbeacon.KBeaconConfigTools.DeviceControlActivity"
+            android:name="com.beacon.kbeacon.DeviceControlActivity"
             android:launchMode="singleInstance"
             android:theme="@style/IosNoActionBarTheme"
             android:screenOrientation="portrait" />

@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.beacon.kbeacon.KBeaconConfigTools.SettingActivity">
+    tools:context="com.beacon.kbeacon.SettingActivity">
 
     <item android:id="@+id/action_settings" android:title="@string/track_setting_save"
         android:orderInCategory="100" android:showAsAction="ifRoom|withText" />
