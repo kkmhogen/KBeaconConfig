@@ -349,6 +349,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                     if (mEnalbeRSSISort) {
                         mHandler.sendEmptyMessageDelayed(MSR_START_SORT_AGAIN, DEV_SORT_PERIOD);
                     }
+                    break;
                 }
 
                 case MSG_SCAN_FAILED:{
