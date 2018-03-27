@@ -215,5 +215,6 @@
     <string name="EDDY_URL_FMT_LEN_18">Eddystone URL length can not > 18 Byte</string>
     <string name="write_error_dev_unlocked">Device is locked, not allowed do this action.</string>
     <string name="KBEACON_ADV_NO_CONNECTABLE">The device is in Un-Connected advertisement and not allowed to be connect. Click the button on KBeacon or reinstall the battery to make it enter connectable advertisement.</string>
+    <string name="location_permit_needed_for_ble">The bluetooth need location permission during scan</string>
 
 </resources>

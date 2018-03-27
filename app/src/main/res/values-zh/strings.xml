@@ -209,4 +209,5 @@
     <string name="EDDY_URL_FMT_LEN_18">Eddystone URL length can not > 18 Byte</string>
     <string name="write_error_dev_unlocked">设备未解锁，当前操作不允许.</string>
     <string name="KBEACON_ADV_NO_CONNECTABLE">设备处于不可连接广播，不允许连接. 您可以按一下KBeacon的按钮或者重新安装电池使KBeacon进入可连接广播</string>
+    <string name="location_permit_needed_for_ble">蓝牙扫描过程需要开启位置权限</string>
 </resources>

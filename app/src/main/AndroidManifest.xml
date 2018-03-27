@@ -16,8 +16,8 @@ limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.beacon.kbeacon"
-          android:versionCode="16"
-          android:versionName="1.35">
+          android:versionCode="17"
+          android:versionName="1.36">
 
     <!--Declare this required feature if you want to make the app available to BLE-capable
     devices only.  If you want to make your app available to devices that don't support BLE,
@@ -30,6 +30,7 @@ limitations under the License.
 
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:icon="@drawable/ic_launcher"
