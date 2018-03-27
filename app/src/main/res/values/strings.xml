@@ -209,12 +209,13 @@
     <string name="BEACON_MAJOR_LIST">Major:</string>
     <string name="BEACON_MINOR_LIST">Minor:</string>
     <string name="RSSI_FILTER_BUTTON">Filter Rssi</string>
-    <string name="RSSI_FILTER_SCALE">Rssi Range:</string>
+    <string name="RSSI_FILTER_SCALE">Min RSSI for scanning</string>
     <string name="input_rssi_error">Rssi value invalid, value must be (-100~+10)</string>
     <string name="min_large_then_max_error">Error: Min rssi value > max rssi value</string>
     <string name="EDDY_URL_FMT_LEN_18">Eddystone URL length can not > 18 Byte</string>
     <string name="write_error_dev_unlocked">Device is locked, not allowed do this action.</string>
     <string name="KBEACON_ADV_NO_CONNECTABLE">The device is in Un-Connected advertisement and not allowed to be connect. Click the button on KBeacon or reinstall the battery to make it enter connectable advertisement.</string>
     <string name="location_permit_needed_for_ble">The bluetooth need location permission during scan</string>
+    <string name="SCAN_FAILED_REBOOT">Start scan failed, please reboot Bluetooth and try it again.</string>
 
 </resources>

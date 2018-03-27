@@ -13,33 +13,25 @@
         android:layout_marginLeft="10dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+        <SeekBar
+            android:id="@+id/seekBarLine"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="@string/RSSI_FILTER_SCALE"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/txtFromRssi"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned"></EditText>
+            android:layout_weight="1"
+            android:max="100"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="16dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/testViewRssiValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingRight="10dp"
             android:paddingTop="10dp"
-            android:text=" ~ "
+            android:text="0dBm"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/txtToRssi"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned"></EditText>
     </LinearLayout>
 
 

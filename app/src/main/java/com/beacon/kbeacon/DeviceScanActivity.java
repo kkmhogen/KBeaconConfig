@@ -57,6 +57,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,6 +80,8 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
     private final static int MSG_REFERASH_ONE_ITEM_VIEW = 205;
     private final static int MSR_START_SORT_AGAIN = 206;
     private final static int MSG_FIND_NEW_DEVICE = 208;
+    private final static int MSG_SCAN_FAILED = 209;
+
 
 
 
@@ -232,15 +235,33 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
         //view
         LayoutInflater factory = LayoutInflater.from(this);
         final View textEntryView = factory.inflate(R.layout.activity_rssi_filter, null);
-        final EditText txtRssiFrom = (EditText) textEntryView.findViewById(R.id.txtFromRssi);
-        final EditText txtRssiTo = (EditText)textEntryView.findViewById(R.id.txtToRssi);
+        final SeekBar barRssiFrom = (SeekBar) textEntryView.findViewById(R.id.seekBarLine);
+        final TextView txtMinRssi = (TextView)textEntryView.findViewById(R.id.testViewRssiValue);
+        int nMinRssi = mPrefMgr.getMinRssiFilter() + 100;
+        txtMinRssi.setText(mPrefMgr.getMinRssiFilter() + "dBm");
+        barRssiFrom.setProgress(nMinRssi);
 
         //create dlg
         AlertDialog.Builder builder = new AlertDialog.Builder(DeviceScanActivity.this);
-        builder.setTitle(getString(R.string.RSSI_FILTER_BUTTON));
+        builder.setTitle(getString(R.string.RSSI_FILTER_SCALE));
         builder.setView(textEntryView);
-        txtRssiFrom.setText(String.valueOf(mPrefMgr.getMinRssiFilter()));
-        txtRssiTo.setText(String.valueOf(mPrefMgr.getMaxRssiFilter()));
+        barRssiFrom.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int nRssiValue = progress - 100;
+                txtMinRssi.setText("" + nRssiValue + "dBm");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+
         builder.setNegativeButton(R.string.Dialog_Cancel, null);
         builder.setPositiveButton(R.string.Dialog_OK, null);
         final AlertDialog alertDialog = builder.create();
@@ -249,33 +270,19 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int nMinRssiValue = -100, nMaxRssiValue = 0;
-                try {
-                    nMinRssiValue = Integer.valueOf(txtRssiFrom.getText().toString());
-                    nMaxRssiValue = Integer.valueOf(txtRssiTo.getText().toString());
-                }catch (NumberFormatException excpt)
-                {
-                    toastShow(getString(R.string.input_rssi_error));
-                    return;
-                }
-                if (nMinRssiValue > nMaxRssiValue){
-                    toastShow(getString(R.string.min_large_then_max_error));
-                    return;
-                }
+                int nMinRssiValue = -100;
+                nMinRssiValue = barRssiFrom.getProgress() - 100;
 
-                if (nMinRssiValue < -100 || nMaxRssiValue > 10)
+                if (nMinRssiValue < -100 || nMinRssiValue > 0)
                 {
                     toastShow(getString(R.string.input_rssi_error));
                     return;
                 }
 
                 mPrefMgr.saveMinRssiFilter(nMinRssiValue);
-                mPrefMgr.saveMaxRssiFilter(nMaxRssiValue);
                 alertDialog.dismiss();
                 mBLESrvMgr.closeAllConnection();
                 updateListView();
-
-                //mHandler.sendEmptyMessage(MSG_RSSI_FILTER_CHANGE);
             }
         });
     }
@@ -342,6 +349,17 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                     if (mEnalbeRSSISort) {
                         mHandler.sendEmptyMessageDelayed(MSR_START_SORT_AGAIN, DEV_SORT_PERIOD);
                     }
+                }
+
+                case MSG_SCAN_FAILED:{
+                    mHandler.removeMessages(MSG_SCAN_FAILED);
+                    stopScan();
+                    new AlertDialog.Builder(DeviceScanActivity.this)
+                            .setTitle(R.string.common_error_title)
+                            .setMessage(R.string.SCAN_FAILED_REBOOT)
+                            .setPositiveButton(R.string.Dialog_OK, null)
+                            .show();
+                    break;
                 }
 
                 case MSG_REFERASH_ONE_ITEM_VIEW:
@@ -480,8 +498,6 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
     }
 
     NPhoneScancallback mNPhoneCallback;
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private class NPhoneScancallback extends ScanCallback
     {
         public void onScanResult(int callbackType, ScanResult result) {
@@ -502,7 +518,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
         public void onScanFailed(int errorCode) {
             Log.e(TAG, "Start N scan failed：" + errorCode);
-            stopScan();
+            mHandler.sendEmptyMessage(MSG_SCAN_FAILED);
         }
     }
 
@@ -516,7 +532,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
         mListViewAdapter.notifyDataSetChanged();
 
-        mHandler.sendEmptyMessageDelayed(MSG_START_SCAN, 100);
+        mHandler.sendEmptyMessageDelayed(MSG_START_SCAN, 1000);
     }
 
     private void checkBluetoothPermitDialog(){

@@ -194,7 +194,7 @@ public class SharePreferenceMgr {
     public int getMinRssiFilter()
     {
         SharedPreferences shareReference = mContext.getSharedPreferences(SETTING_INFO, mContext.MODE_PRIVATE);
-        return shareReference.getInt("MinRssiFilter", -100);
+        return shareReference.getInt("MinRssiFilter", -70);
     }
 
     public void saveMinRssiFilter(int rssiFilter){

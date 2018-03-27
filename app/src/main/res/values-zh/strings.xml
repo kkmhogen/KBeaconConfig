@@ -203,11 +203,12 @@
     <string name="BEACON_MAJOR_LIST">Major:</string>
     <string name="BEACON_MINOR_LIST">Minor:</string>
     <string name="RSSI_FILTER_BUTTON">Filter Rssi</string>
-    <string name="RSSI_FILTER_SCALE">Rssi Range:</string>
+    <string name="RSSI_FILTER_SCALE">扫描的最小RSSI:</string>
     <string name="input_rssi_error">Rssi值输入错误，范围为 (-100~+10)</string>
     <string name="min_large_then_max_error">错误，RSSI最小值> RSSI最大值</string>
     <string name="EDDY_URL_FMT_LEN_18">Eddystone URL length can not > 18 Byte</string>
     <string name="write_error_dev_unlocked">设备未解锁，当前操作不允许.</string>
     <string name="KBEACON_ADV_NO_CONNECTABLE">设备处于不可连接广播，不允许连接. 您可以按一下KBeacon的按钮或者重新安装电池使KBeacon进入可连接广播</string>
     <string name="location_permit_needed_for_ble">蓝牙扫描过程需要开启位置权限</string>
+    <string name="SCAN_FAILED_REBOOT">启动蓝牙扫描失败，请重启蓝牙再尝试</string>
 </resources>
