@@ -38,6 +38,7 @@ import static com.beacon.kbeacon.BeaconPerperal.EDDYSTONE_MAX_URL_ENCODE_LEN;
  */
 public class Utils {
 
+    public static final ParcelUuid PARCE_UUID_BEACON_SERVICE = ParcelUuid.fromString("EE0C2080-8786-40BA-AB96-99B91AC981D8");
 
     public static final java.util.UUID SRV_BEACON_CUSTOM_UUID = java.util.UUID.fromString("EE0C2080-8786-40BA-AB96-99B91AC981D8");
 

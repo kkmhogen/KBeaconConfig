@@ -211,4 +211,6 @@
     <string name="KBEACON_ADV_NO_CONNECTABLE">设备处于不可连接广播，不允许连接. 您可以按一下KBeacon的按钮或者重新安装电池使KBeacon进入可连接广播</string>
     <string name="location_permit_needed_for_ble">蓝牙扫描过程需要开启位置权限</string>
     <string name="SCAN_FAILED_REBOOT">启动蓝牙扫描失败，请重启蓝牙再尝试</string>
+    <string name="EDIT_BEACON_TX_LVLS">TxPowerLevels:</string>
+    <string name="BEACON_ADV_Pwr_lvls_ERROR">Beacon Tx power levels error(-20~5dBm)</string>
 </resources>

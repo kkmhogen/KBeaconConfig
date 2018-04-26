@@ -1155,6 +1155,51 @@ public class BeaconPerperal {
         mWriteCharacterList.remove(uuid);
     }
 
+    public String getCfgTxPowrLvls(){
+        String strTxPowrLvls = "";
+        for (int i = 0; i < 4; i++){
+            int nTxPower = mCfgBeaconTxPowerLvls[i];
+            strTxPowrLvls += String.valueOf(nTxPower);
+            strTxPowrLvls += "; ";
+        }
+
+        return strTxPowrLvls;
+    }
+
+    public boolean setCfgBeaconTxPowerLvls(String strPwrLvls){
+        strPwrLvls = strPwrLvls.trim();
+        String []pwrLvls = strPwrLvls.split(";");
+        if (pwrLvls.length != 4){
+            return false;
+        }
+
+        int[] byPwrLvls = new int[4];
+        for (int i = 0; i < 4; i++){
+            pwrLvls[i] = pwrLvls[i].trim();
+            try {
+                byPwrLvls[i] = Integer.valueOf(pwrLvls[i]);
+            }catch (NumberFormatException numberExcp){
+                return false;
+            }
+            if (byPwrLvls[i] > 5 || byPwrLvls[i] < -20){
+                return false;
+            }
+        }
+
+        boolean bDataChg = false;
+        for (int i = 0; i < pwrLvls.length; i++) {
+            if (mCfgBeaconTxPowerLvls[i] != byPwrLvls[i]) {
+                bDataChg = true;
+                mCfgBeaconTxPowerLvls[i] = (byte)byPwrLvls[i];
+            }
+        }
+        if (bDataChg){
+            addCfgType2WriteList(Utils.CHR_BEACON_CFG_TX_POWER_LVL_UUID);
+        }
+
+        return true;
+    }
+
     public String getCfgBeaconTxPower(int i){
         if (i > 4){
             return null;
@@ -1554,6 +1599,8 @@ public class BeaconPerperal {
     public int getCfgAdvPeriod(){
         return mCfgBeaconAdvPeriod;
     }
+
+
 
     public boolean setCfgAdvPeriod(String strAdvPeriod){
         try {

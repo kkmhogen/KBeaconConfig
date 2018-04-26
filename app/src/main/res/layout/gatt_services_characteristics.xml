@@ -203,7 +203,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.3"
                                 android:ems="10"
-                                android:inputType="number"
+                                android:inputType="text"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -238,7 +238,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.3"
                                 android:ems="10"
-                                android:inputType="number"
+                                android:inputType="text"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -425,7 +425,29 @@
 
                     </LinearLayout>
 
-                    <!--睡眠模式时间 -->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1.0">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/EDIT_BEACON_TX_LVLS"
+                            android:textSize="@dimen/activity_horizontal_margin" />
+
+                        <EditText
+                            android:id="@+id/editTxPwrLvls"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="fill_parent"

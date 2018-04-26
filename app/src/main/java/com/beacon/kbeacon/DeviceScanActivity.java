@@ -25,6 +25,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
+import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanRecord;
 import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
@@ -61,6 +62,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -92,6 +94,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
     /**搜索BLE终端*/
     private BluetoothAdapter mBluetoothAdapter;
+    private long mLastScanTick = 0;
     /**读写BLE终端*/
     private BeaconPerpMgr mBLESrvMgr;
     private ListView mListView;
@@ -108,6 +111,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
     // Stops scanning after 10 seconds.
     private static final long SCAN_POST_DELAY = 5;
     private static final long SCAN_PERIOD = 120* 1000;
+    private static final long MIN_SCAN_INTERVAL = 20* 1000;
     private static final long CHK_TIMER_PERIOD = 4 * 1010;
 
     private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
@@ -191,8 +195,10 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                     public void run() {
                         // TODO Auto-generated method stub
                         swipeRefreshLayout.setRefreshing(false);
-
-                        reStartScan();
+                        if(System.currentTimeMillis() - mLastScanTick > MIN_SCAN_INTERVAL)
+                        {
+                            reStartScan();
+                        }
                     }
                 }, 500);
             }
@@ -355,11 +361,14 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                 case MSG_SCAN_FAILED:{
                     mHandler.removeMessages(MSG_SCAN_FAILED);
                     stopScan();
+                    Log.e(TAG, "start scan failed");
+                    /*
                     new AlertDialog.Builder(DeviceScanActivity.this)
                             .setTitle(R.string.common_error_title)
                             .setMessage(R.string.SCAN_FAILED_REBOOT)
                             .setPositiveButton(R.string.Dialog_OK, null)
                             .show();
+                            */
                     break;
                 }
 
@@ -415,9 +424,9 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                     R.string.ble_function_disable,
                     Toast.LENGTH_SHORT).show();
         }else {
-            stopScan();
+                stopScan();
 
-            startScan();
+                startScan();
         }
 
         updateListView();
@@ -485,7 +494,9 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                 ScanSettings.Builder setsBuild;
                 setsBuild = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY);
                 BluetoothLeScanner scaner = mBluetoothAdapter.getBluetoothLeScanner();
+
                 scaner.startScan(null, setsBuild.build(), mNPhoneCallback);
+                mLastScanTick = System.currentTimeMillis();
             }
 
             mScanning = true;
@@ -531,9 +542,12 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
         checkBluetoothPermitDialog();
 
-        mListViewAdapter.notifyDataSetChanged();
+        //mListViewAdapter.notifyDataSetChanged();
 
-        mHandler.sendEmptyMessageDelayed(MSG_START_SCAN, 1000);
+        long nScanInterval = System.currentTimeMillis() - mLastScanTick;
+        long nDelayTime = nScanInterval < MIN_SCAN_INTERVAL? 1000: MIN_SCAN_INTERVAL - nScanInterval;
+
+        mHandler.sendEmptyMessageDelayed(MSG_START_SCAN, nDelayTime);
     }
 
     private void checkBluetoothPermitDialog(){

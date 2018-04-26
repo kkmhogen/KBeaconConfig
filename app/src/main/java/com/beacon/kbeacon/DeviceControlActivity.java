@@ -68,7 +68,7 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
     private Switch mSwitchConnEnable;
     private Button mActionButton;
 
-    private EditText mEditAdvPeriod;
+    private EditText mEditAdvPeriod, mEditTxPwrLvls;
     RadioButton []mRadioPwLvl;
     private EditText mEditNewPassword;
     private EditText mEditDevName, mEditDevSerialID;
@@ -135,6 +135,7 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
         mEddySerialID = (EditText) findViewById(R.id.editEddySerialID);
 
         mEditAdvPeriod = (EditText) findViewById(R.id.editBeaconAdvPeriod);
+        mEditTxPwrLvls = (EditText) findViewById(R.id.editTxPwrLvls);
 
         findViewById(R.id.imageButtonBack).setOnClickListener(this);
         mActionButton = (Button) findViewById(R.id.buttonAction);
@@ -213,6 +214,9 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
 
                     if (BeaconPerperal.BEACON_NTF_WR_COMPLETE == nBeaconStatus) {
                         mUpdateDialog.dismiss();
+
+                        updateViewFromPerp();
+
                         new AlertDialog.Builder(DeviceControlActivity.this)
                                 .setTitle(R.string.upload_data_title)
                                 .setMessage(R.string.upload_data_success)
@@ -431,6 +435,15 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
                     .show();
             return;
         }
+        ;
+        if (!mBlePerp.setCfgBeaconTxPowerLvls(mEditTxPwrLvls.getText().toString())) {
+            new AlertDialog.Builder(DeviceControlActivity.this)
+                    .setTitle(R.string.common_error_title)
+                    .setMessage(R.string.BEACON_ADV_Pwr_lvls_ERROR)
+                    .setPositiveButton(R.string.Dialog_OK, null)
+                    .show();
+            return;
+        }
 
         for (int i = 0; i < 4; i++){
             if (mRadioPwLvl[i].isChecked()){
@@ -500,15 +513,15 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
 
     public void updateViewFromPerp()
     {
-        mRadioAdvTypeIBeacon.setChecked(false);
-        mRadioAdvTypeEddyURL.setChecked(false);
-        mRadioAdvTypeEddyUID.setChecked(false);
-        mRadioAdvTypeEddyTLM.setChecked(false);
         mIbeaconView.setVisibility(View.GONE);
         mEddyUidView.setVisibility(View.GONE);
         mEddyUrlView.setVisibility(View.GONE);
         if (mBlePerp.getCfgBeaconAdvType() == BeaconPerperal.BEACON_TYPE_IBEACON) {
             mRadioAdvTypeIBeacon.setChecked(true);
+
+            mRadioAdvTypeEddyURL.setChecked(false);
+            mRadioAdvTypeEddyUID.setChecked(false);
+            mRadioAdvTypeEddyTLM.setChecked(false);
             mIbeaconView.setVisibility(View.VISIBLE);
 
             mIBeaconUUID.setText(mBlePerp.getCfgIBeaconUUID());
@@ -517,20 +530,35 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
 
         }else if (mBlePerp.getCfgBeaconAdvType() == BeaconPerperal.BEACON_TYPE_EDDY_UID){
             mRadioAdvTypeEddyUID.setChecked(true);
+
+            mRadioAdvTypeIBeacon.setChecked(false);
+            mRadioAdvTypeEddyURL.setChecked(false);
+            mRadioAdvTypeEddyTLM.setChecked(false);
+
             mEddyUidView.setVisibility(View.VISIBLE);
             mEddyNamespaceID.setText(mBlePerp.getCfgEddyNamespaceID());
             mEddySerialID.setText(mBlePerp.getCfgEddySerialID());
         }else if (mBlePerp.getCfgBeaconAdvType() == BeaconPerperal.BEACON_TYPE_EDDY_URL) {
             mRadioAdvTypeEddyURL.setChecked(true);
+
+            mRadioAdvTypeIBeacon.setChecked(false);
+            mRadioAdvTypeEddyUID.setChecked(false);
+            mRadioAdvTypeEddyTLM.setChecked(false);
+
             mEddyUrlView.setVisibility(View.VISIBLE);
             mEddyURL.setText(mBlePerp.getCfgEddyUrl());
         }else if (mBlePerp.getCfgBeaconAdvType() == BeaconPerperal.BEACON_TYPE_EDDY_TLM) {
             mRadioAdvTypeEddyTLM.setChecked(true);
+
+            mRadioAdvTypeIBeacon.setChecked(false);
+            mRadioAdvTypeEddyURL.setChecked(false);
+            mRadioAdvTypeEddyUID.setChecked(false);
         }
 
         mSwitchConnEnable.setChecked(mBlePerp.getCfgBeaconAdvFlag() != 0);
 
         mEditAdvPeriod.setText(String.valueOf(mBlePerp.getCfgAdvPeriod()));
+        mEditTxPwrLvls.setText(mBlePerp.getCfgTxPowrLvls());
 
         for (int i = 0; i < 4; i++){
             String strTxPower = mBlePerp.getCfgBeaconTxPower(i);
@@ -665,9 +693,10 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
         }
 
         mEditAdvPeriod.setText(mPrefCfg.getAdvPeriod());
-
+        String strPwrLvls = "";
         for (int i = 0; i < 4; i++){
             String strPwlLvl = mPrefCfg.getTxPwlLvl(i);
+            strPwrLvls += strPwlLvl + ";";
             mRadioPwLvl[i].setText(strPwlLvl);
 
             if (i == mPrefCfg.getTxPwlIdx()) {
@@ -677,7 +706,8 @@ public class DeviceControlActivity extends Activity implements View.OnClickListe
             }
         }
         mEditDevName.setText(mPrefCfg.getBeaconName());
-        mEditDevSerialID.setText(mPrefCfg.getBeaconSerialID());
+        mEditTxPwrLvls.setText(strPwrLvls);
+        //mEditDevSerialID.setText(mPrefCfg.getBeaconSerialID());
         mSwitchConnEnable.setChecked(mPrefCfg.getConnEnable());
         mEditNewPassword.setText(mPrefCfg.getCommonBeaconPassword());
 

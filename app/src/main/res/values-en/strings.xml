@@ -214,4 +214,6 @@
     <string name="KBEACON_ADV_NO_CONNECTABLE">The device is in Un-Connected advertisement and not allowed to be connect. Click the button on KBeacon or reinstall the battery to make it enter connectable advertisement.</string>
     <string name="location_permit_needed_for_ble">The bluetooth need location permission during scan</string>
     <string name="SCAN_FAILED_REBOOT">Start scan failed, please reboot Bluetooth and try it again.</string>
+    <string name="EDIT_BEACON_TX_LVLS">TxPowerLevels:</string>
+    <string name="BEACON_ADV_Pwr_lvls_ERROR">Beacon Tx power levels error(-20~5dBm)</string>
 </resources>
