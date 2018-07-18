@@ -139,7 +139,7 @@
     <string name="BEACON_UUID">UUID:0x</string>
     <string name="EDDYSTONE_URL_DESC">Url:</string>
     <string name="EDDYSTONE_UID">UID:</string>
-    <string name="BEACON_MAJOR_EXPLAIN">(0~65535)</string>
+    <string name="BEACON_MAJOR_EXPLAIN">(0~0xFFFF)</string>
     <string name="BEACON_ADV_TYPE">Beacon Type</string>
     <string name="ADV_TYPE_IBEACON">iBeacon</string>
     <string name="ADV_TYPE_URL">EddyURL</string>

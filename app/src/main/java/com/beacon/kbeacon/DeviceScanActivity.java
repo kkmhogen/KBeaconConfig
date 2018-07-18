@@ -111,7 +111,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
     // Stops scanning after 10 seconds.
     private static final long SCAN_POST_DELAY = 5;
     private static final long SCAN_PERIOD = 120* 1000;
-    private static final long MIN_SCAN_INTERVAL = 20* 1000;
+    private static final long MIN_SCAN_INTERVAL = 15* 1000;
     private static final long CHK_TIMER_PERIOD = 4 * 1010;
 
     private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
@@ -495,6 +495,12 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                 setsBuild = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY);
                 BluetoothLeScanner scaner = mBluetoothAdapter.getBluetoothLeScanner();
 
+                //second index
+                List<ScanFilter> filters = new ArrayList<ScanFilter>(2);
+                ScanFilter.Builder builder2 = new ScanFilter.Builder();
+                builder2.setServiceUuid(Utils.PARCE_CFG_UUID_EDDYSTONE);
+                filters.add(builder2.build());
+
                 scaner.startScan(null, setsBuild.build(), mNPhoneCallback);
                 mLastScanTick = System.currentTimeMillis();
             }
@@ -542,7 +548,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
         checkBluetoothPermitDialog();
 
-        //mListViewAdapter.notifyDataSetChanged();
+        mListViewAdapter.notifyDataSetChanged();
 
         long nScanInterval = System.currentTimeMillis() - mLastScanTick;
         long nDelayTime = nScanInterval < MIN_SCAN_INTERVAL? 1000: MIN_SCAN_INTERVAL - nScanInterval;
@@ -680,7 +686,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
                     nBatteryLevel += (srvData[nSrvIndex++] & 0xFF);
 
                     //temputure
-                    int nTempPointLeft = (srvData[nSrvIndex++] & 0xFF);
+                    byte nTempPointLeft = (byte)(srvData[nSrvIndex++] & 0xFF);
                     int nTempPointRight = (srvData[nSrvIndex++] & 0xFF);
                     String strTemp = String.format("%d.%d", nTempPointLeft, nTempPointRight);
                     fTemputure = Float.valueOf(strTemp);

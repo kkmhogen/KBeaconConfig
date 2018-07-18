@@ -207,24 +207,6 @@
                                 android:textSize="14sp" />
 
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.3"
-                                android:text="@string/BEACON_MAJOR_EXPLAIN"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginLeft="10dp"
-                            android:orientation="horizontal"
-                            android:weightSum="1.0">
-
-
-                            <!-- Appring text -->
-
-                            <TextView
                                 android:id="@+id/beacon_minor"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -240,16 +222,15 @@
                                 android:ems="10"
                                 android:inputType="text"
                                 android:textSize="14sp" />
-
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.3"
                                 android:text="@string/BEACON_MAJOR_EXPLAIN"
                                 android:textSize="12sp" />
-
-
                         </LinearLayout>
+
+
 
 
                     </LinearLayout>
@@ -261,7 +242,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:orientation="vertical"
-                        android:visibility="invisible">
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/textViewUrl"
@@ -304,7 +285,7 @@
                         android:id="@+id/EddystoneUIDSetting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -383,7 +364,7 @@
                         android:id="@+id/textViewDesc"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:text="@string/CommonSetting"
                         android:textSize="18sp" />
 
@@ -572,6 +553,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="35dp"
                         android:orientation="horizontal"
+                        android:visibility="visible"
                         android:weightSum="1.0">
                         <!-- Appring text -->
 
@@ -622,7 +604,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:orientation="horizontal"
                         android:weightSum="1.0">
 
