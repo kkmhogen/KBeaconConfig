@@ -428,8 +428,6 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
                 startScan();
         }
-
-        updateListView();
     }
 
     @Override
@@ -492,7 +490,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
                 //start scan
                 ScanSettings.Builder setsBuild;
-                setsBuild = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY);
+                setsBuild = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_BALANCED);
                 BluetoothLeScanner scaner = mBluetoothAdapter.getBluetoothLeScanner();
 
                 //second index
@@ -547,8 +545,6 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
     public void startScan() {
 
         checkBluetoothPermitDialog();
-
-        mListViewAdapter.notifyDataSetChanged();
 
         long nScanInterval = System.currentTimeMillis() - mLastScanTick;
         long nDelayTime = nScanInterval < MIN_SCAN_INTERVAL? 1000: MIN_SCAN_INTERVAL - nScanInterval;
@@ -803,7 +799,7 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
         if (bNewPerp)
         {
-            mHandler.sendEmptyMessageDelayed(MSG_REFERASH_VIEW, 200);
+            updateListView();
         }
         else
         {
